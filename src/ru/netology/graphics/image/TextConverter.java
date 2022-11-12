@@ -32,6 +32,11 @@ public class TextConverter implements TextGraphicsConverter {
             newHeight = (int) (newHeight / ratio);
 
         }
+        if (newWidth > this.maxWidth) {
+            double ratio = newWidth / maxWidth;
+            newWidth = (int) (newWidth / ratio);
+            newHeight = (int) (newHeight / ratio);
+        }
 
         Image scaledImage = img.getScaledInstance(newWidth, newHeight, BufferedImage.SCALE_SMOOTH);
         BufferedImage bwImg = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_BYTE_GRAY);
